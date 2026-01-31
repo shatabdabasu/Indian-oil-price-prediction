@@ -47,8 +47,30 @@ print("MAE:", mae) #MAE = 250 ,On average, the model’s prediction was ₹250 p
  # Numbers can lie quietly. Plots cannot.
 import matplotlib.pyplot as plt
 
-plt.plot(y_test.values, label="Actual")
-plt.plot(y_pred, label="Predicted")
-plt.legend()
+plt.figure(figsize=(12, 5), dpi=140)
+
+# ACTUAL — thin but authoritative
+plt.plot(
+    y_test.values,
+    label="Actual",
+    color="black",
+    linewidth=1.4,
+    alpha=0.9,
+    zorder=3
+)
+
+# PREDICTED — very thin red thread
+plt.plot(
+    y_pred,
+    label="Predicted",
+    color="red",
+    linewidth=1.0,
+    alpha=0.7,
+    zorder=2
+)
+
+plt.legend(frameon=False)
 plt.title("Actual vs Predicted Indian Crude Oil Price")
+plt.tight_layout()
 plt.show()
+
